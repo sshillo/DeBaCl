@@ -453,3 +453,26 @@ class TestLevelSetTree(unittest.TestCase):
         leaves = self.tree.get_leaf_nodes()
         answer = [2, 5, 6, 8, 9, 10]
         self.assertEqual(leaves, answer)
+
+    def test_branch_partition(self):
+        """
+        Test that the full data partition based on branch membership works
+        correctly."""
+
+        partition = self.tree.branch_partition()
+
+        # all values should be integers
+        self.assertTrue(partition.dtype is np.dtype('int64'))
+
+        # a label for each data instance
+        self.assertEqual(len(partition), self.n)
+
+        # no duplicate row indices
+        self.assertEqual(len(partition[:, 0]), len(np.unique(partition[:, 0])))
+
+        # row indices should start at 0
+        self.assertEqual(np.min(partition[:, 0]), 0)
+
+        # Labels should match tree nodes exactly.
+        self.assertItemsEqual(np.unique(partition[:, 1]),
+                              self.tree.nodes.keys())
