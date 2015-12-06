@@ -155,8 +155,8 @@ class LevelSetTree(object):
         with open(filename, 'wb') as f:
             _cPickle.dump(self, f, _cPickle.HIGHEST_PROTOCOL)
 
-    def plot(serializedf, form='mass', horizontal_spacing='uniform',
-             color_nodes=[], colormap='Dark2'):
+    def plot(self, form='mass', horizontal_spacing='uniform', color_nodes=[],
+             colormap='Dark2'):
         """
         Plot the level set tree as a dendrogram and return coordinates and
         colors of the branches.
