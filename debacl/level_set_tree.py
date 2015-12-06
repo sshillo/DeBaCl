@@ -9,7 +9,7 @@ analysis and clustering with level set trees.
 import logging as _logging
 import copy as _copy
 import cPickle as _cPickle
-import utils as _utl
+import debacl.utils as _utl
 
 _logging.basicConfig(level=_logging.INFO, datefmt='%Y-%m-%d %I:%M:%S',
                      format='%(levelname)s (%(asctime)s): %(message)s')
