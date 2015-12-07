@@ -8,7 +8,12 @@ analysis and clustering with level set trees.
 ## Built-in packages
 import logging as _logging
 import copy as _copy
-import cPickle as _cPickle
+
+try:
+  import cPickle as pickle
+except ImportError:
+  import pickle
+
 import debacl.utils as _utl
 
 _logging.basicConfig(level=_logging.INFO, datefmt='%Y-%m-%d %I:%M:%S',
